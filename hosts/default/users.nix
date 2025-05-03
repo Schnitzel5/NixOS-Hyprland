@@ -43,7 +43,7 @@ in
       ohMyZsh = {
         enable = true;
         plugins = ["git"];
-        theme = "agnoster"; 
+        theme = "jispwoso"; 
       	};
       
       autosuggestions.enable = true;

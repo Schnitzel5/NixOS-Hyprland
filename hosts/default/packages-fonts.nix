@@ -85,6 +85,13 @@
     yad
     yt-dlp
 
+    (vscode-with-extensions.override {
+    vscodeExtensions = with vscode-extensions; [
+      bbenoist.nix
+    ];
+    })
+    discord
+
     #waybar  # if wanted experimental next line
     #(pkgs.waybar.overrideAttrs (oldAttrs: { mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];}))
   ]) ++ [
@@ -119,30 +126,41 @@
     };
 
 	
-	  waybar.enable = true;
-	  hyprlock.enable = true;
-	  firefox.enable = true;
-	  git.enable = true;
+	waybar.enable = true;
+	hyprlock.enable = true;
+	firefox.enable = true;
+	git.enable = true;
     nm-applet.indicator = true;
     #neovim.enable = true;
 
-	  thunar.enable = true;
-	  thunar.plugins = with pkgs.xfce; [
-		  exo
-		  mousepad
-		  thunar-archive-plugin
-		  thunar-volman
-		  tumbler
-  	  ];
+	thunar.enable = true;
+	thunar.plugins = with pkgs.xfce; [
+	  exo
+	  mousepad
+	  thunar-archive-plugin
+	  thunar-volman
+	  tumbler
+  	];
 	
     virt-manager.enable = false;
     
-    #steam = {
-    #  enable = true;
-    #  gamescopeSession.enable = true;
-    #  remotePlay.openFirewall = true;
-    #  dedicatedServer.openFirewall = true;
-    #};
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
+
+    chromium = {
+      enable = true;
+      package = pkgs.brave;
+      extensions = [
+        { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
+      ];
+      commandLineArgs = [
+        "--disable-features=WebRtcAllowInputVolumeAdjustment"
+      ];
+    }
     
     xwayland.enable = true;
 

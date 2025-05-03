@@ -1,5 +1,5 @@
 {
-  description = "KooL's NixOS-Hyprland"; 
+  description = "friedcutlet's NixOS-Hyprland"; 
   	
   inputs = {
 	nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
@@ -14,8 +14,8 @@
 	inputs@{ self, nixpkgs, ... }:
     	let
       system = "x86_64-linux";
-      host = "NixOS-Hyprland";
-      username = "alice";
+      host = "friedcutlet";
+      username = "friedcutlet";
 
     pkgs = import nixpkgs {
        	inherit system;
